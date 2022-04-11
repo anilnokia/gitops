@@ -14,3 +14,10 @@ spec:
     path: apps/airflow
     repoURL: https://github.com/anilnokia/gitops.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+
