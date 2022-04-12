@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-2-default
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: https://135.104.238.128:6443
+  project: default
+  source:
+    path: apps/app-2
+    repoURL: https://github.com/anilnokia/gitops.git
+    targetRevision: HEAD
