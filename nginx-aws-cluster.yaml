@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-aws-cluster
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/anilnokia/gitops.git
+    targetRevision: HEAD
+    path: apps/nginx
+  destination:
+    server: https://200D570C093AE90558DEA83F49AE806F.gr7.us-east-2.eks.amazonaws.com
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
