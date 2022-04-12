@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: airflow
     server: https://135.104.238.128:6443
-  project: production
+  project: default
   source:
     path: apps/airflow
     repoURL: https://github.com/anilnokia/gitops.git

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: airflow
+  name: airflow-in-cluster
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: airflow
     server: https://kubernetes.default.svc
-  project: production
+  project: default
   source:
     path: apps/airflow
     repoURL: https://github.com/anilnokia/gitops.git
