@@ -12,7 +12,7 @@ spec:
     targetRevision: HEAD
     path: blipp56
   destination:
-    server: https://135.104.238.128:6443
+    server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:

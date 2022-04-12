@@ -8,8 +8,8 @@ metadata:
 spec:
   destination:
     namespace: airflow
-    server: https://135.104.238.119:6443
-  project: production
+    server: https://135.104.238.138:6443
+  project: default
   source:
     path: apps/airflow
     repoURL: https://github.com/anilnokia/gitops.git
