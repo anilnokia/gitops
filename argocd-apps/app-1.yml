@@ -14,3 +14,9 @@ spec:
     path: apps/app-1
     repoURL: https://github.com/anilnokia/gitops.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
