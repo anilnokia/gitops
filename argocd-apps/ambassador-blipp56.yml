@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ambassador-blipp56
+  name: ambassador
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
