@@ -62,10 +62,10 @@ diagnosticMode:
 auth:
   ## @param auth.username Username to access web UI
   ##
-  username: user
+  username: airflow
   ## @param auth.password Password to access web UI
   ##
-  password: ""
+  password: "airflow"
   ## @param auth.fernetKey Fernet key to secure connections
   ## ref: https://airflow.readthedocs.io/en/stable/howto/secure-connections.html
   ## ref: https://bcb.github.io/airflow/fernet-key
@@ -90,9 +90,9 @@ executor: CeleryExecutor
 loadExamples: false
 ## @param configuration Specify content for Airflow config file (auto-generated based on other env. vars otherwise)
 ## e.g:
-##   configuration: |-
-##     [core]
-##     dags_folder=/nas4/mlaas/airflow/dags
+## configuration: |-
+##   [core]
+##   dags_folder=/opt/bitnami/airflow/dags
 ##   ...
 ##
 configuration: ""
@@ -117,7 +117,7 @@ dags:
   image:
     registry: docker.io
     repository: bitnami/bitnami-shell
-    tag: 10-debian-10-r379
+    tag: 10-debian-10-r388
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
@@ -179,7 +179,7 @@ web:
   image:
     registry: docker.io
     repository: bitnami/airflow
-    tag: 2.2.4-debian-10-r20
+    tag: 2.2.5-debian-10-r2
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
     ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -196,7 +196,7 @@ web:
     ## Set to true if you would like to see extra information on logs
     ##
     debug: false
-  ## @param web.baseUrl URL used to access to Airflow web ui
+  ## @param web.baseUrl URL used trueto access to Airflow web ui
   ##
   baseUrl: ""
   ## @param web.existingConfigmap Name of an existing config map containing the Airflow web config file
@@ -432,7 +432,7 @@ scheduler:
   image:
     registry: docker.io
     repository: bitnami/airflow-scheduler
-    tag: 2.2.4-debian-10-r32
+    tag: 2.2.5-debian-10-r1
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
     ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -631,7 +631,7 @@ worker:
   image:
     registry: docker.io
     repository: bitnami/airflow-worker
-    tag: 2.2.4-debian-10-r33
+    tag: 2.2.5-debian-10-r1
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
     ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -899,7 +899,7 @@ git:
   image:
     registry: docker.io
     repository: bitnami/git
-    tag: 2.35.1-debian-10-r58
+    tag: 2.35.1-debian-10-r68
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
     ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -929,16 +929,17 @@ git:
     ##     path: /
     ##
     repositories:
-      - repository: ""
+      - repository: "https://github.com/anilnokia/dag"
         ## Branch from repository to checkout
         ##
-        branch: ""
+        branch: "master"
         ## An unique identifier for repository, must be unique for each repository
         ##
-        name: ""
+        name: "dags"
         ## Path to a folder in the repository containing the dags
         ##
-        path: ""
+  ##      path: "/"
+  ##      path: "airflow-dag-examples"
   ## Get Plugins files from git repositories.
   ## @param git.plugins.enabled Enable in order to download Plugins files from git repositories.
   ## @param git.plugins.repositories [array] Array of repositories from which to download DAG files
@@ -1060,7 +1061,7 @@ service:
   ## NOTE: choose port between <30000-32767>
   ##
   nodePorts:
-    http: ""
+    http: "8080"
   ## @param service.sessionAffinity Control where client requests go, to the same pod or round-robin
   ## Values: ClientIP or None
   ## ref: https://kubernetes.io/docs/user-guide/services/
@@ -1240,7 +1241,7 @@ metrics:
   image:
     registry: docker.io
     repository: bitnami/airflow-exporter
-    tag: 0.20220314.0-debian-10-r15
+    tag: 0.20220314.0-debian-10-r25
     pullPolicy: IfNotPresent
     ## Optionally specify an array of imagePullSecrets.
     ## Secrets must be manually created in the namespace.
