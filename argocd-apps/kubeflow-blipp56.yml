@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kubeflow-blipp56
+  name: kubeflow
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
