@@ -191,7 +191,7 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePorts:
-    http: ""
+    http: "30080"
     https: ""
 
   ## Set the LoadBalancer service type to internal only.

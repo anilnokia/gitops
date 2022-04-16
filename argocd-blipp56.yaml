@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-apps-inference
+  name: argocd-blipp56
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/anilnokia/gitops.git
     targetRevision: HEAD
-    path: inference
+    path: blipp56
   destination:
     server: https://kubernetes.default.svc
     namespace: default

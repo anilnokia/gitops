@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-inference
+  name: argocd-inference
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,10 +10,10 @@ spec:
   source:
     repoURL: https://github.com/anilnokia/gitops.git
     targetRevision: HEAD
-    path: apps/nginx
+    path: inference
   destination:
-    server: https://135.104.238.138:6443
-    namespace: nginx
+    server: https://kubernetes.default.svc
+    namespace: default
   syncPolicy:
     automated:
       selfHeal: true
