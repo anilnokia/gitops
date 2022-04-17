@@ -1,12 +1,4 @@
 apiVersion: argoproj.io/v1alpha1
-  ignoreDifferences:
-  - group: apiextensions.k8s.io
-    kind: CustomResourceDefinition
-    name: seldondeployments.machinelearning.seldon.io
-    jsonPointers:
-    - /spec
-    - /status
-    - /metadata/labels
 kind: Application
 metadata:
   name: seldon-core
