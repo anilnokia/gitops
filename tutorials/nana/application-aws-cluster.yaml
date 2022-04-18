@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-application-aws
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/anilnokia/nana.git
+    targetRevision: HEAD
+    path: dev
+  destination: 
+    server: https://200D570C093AE90558DEA83F49AE806F.gr7.us-east-2.eks.amazonaws.com
+    namespace: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
