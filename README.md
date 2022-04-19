@@ -16,6 +16,18 @@ If you want to reproduce this setup, then follow the full installation steps
 
 ## Steps
 
+0. # Setup proxy environment for argocd
+
+## Retrieve the standard values.yaml from the helm repo
+```
+helm inspect values argo/argo-cd > values.yaml
+```
+
+## Customize it with proxy settings
+```
+./merge.sh values.yaml proxy.yaml > values-proxy.yaml
+```
+
 1. Install ArgoCD in the management cluster
 ```
 helm repo add argo https://argoproj.github.io/argo-helm
