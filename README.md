@@ -11,8 +11,8 @@ This repo is showcasing:
 If you want to reproduce this setup, then follow the full installation steps
 - Clone this repo and update all the repo URLs accordingly
 - Create a management cluster.
-- Configure proxy in /etc/environment with nokia proxy and add your cluster IP ranges to no_proxy
-- Connect to the nokia vpn
+- Configure proxy in /etc/environment with proxy and add your cluster IP ranges to no_proxy
+- Connect to the vpn
 
 ## Steps
 
