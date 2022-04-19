@@ -21,4 +21,5 @@ spec:
       allowEmpty: true
     syncOptions:
     - CreateNamespace=true
-
+    - Replace=true
+    - ApplyOutOfSyncOnly=true
