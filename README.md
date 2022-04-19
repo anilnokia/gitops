@@ -49,7 +49,7 @@ argocd account update-password --current-password $PASS --new-password admin123 
 
 Log in Gitlab, create a [deploy token](https://docs.gitlab.com/ee/user/project/deploy_tokens/) and then run
 ```
-argocd repo add https://gitlabe2.ext.net.nokia.com/cns-ba-ta-as/gitops-everything.git \
+argocd repo add https://your_Repo_link.git \
   --username <username> --password <token> --project production --insecure-skip-server-verification
 ```
 Alternatively the repo connection details can be 
