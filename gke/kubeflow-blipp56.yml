@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeflow
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kubeflow
+    server: https://135.104.238.128:6443
+  project: default
+  source:
+    path: apps/kubeflow
+    repoURL: https://github.com/anilnokia/gitops.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true
+    - Replace=true
+    - ApplyOutOfSyncOnly=true
