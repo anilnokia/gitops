@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-IaaC
+  name: argocd-iaac
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
