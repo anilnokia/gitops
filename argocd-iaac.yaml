@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-gke-cluster
+  name: argocd-IaaC
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -10,9 +10,9 @@ spec:
   source:
     repoURL: https://github.com/anilnokia/gitops.git
     targetRevision: HEAD
-    path: apps/nginx
+    path: iaac
   destination:
-    server: https://34.139.190.31
+    server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:
