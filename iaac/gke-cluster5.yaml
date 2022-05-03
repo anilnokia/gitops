@@ -25,7 +25,7 @@ spec:
       oauthScopes:
       - https://www.googleapis.com/auth/cloud-platform
     autoscaling:
-      enabled: false
+      enabled: true
       minNodeCount: 1
       maxNodeCount: 2
     management:
