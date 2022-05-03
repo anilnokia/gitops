@@ -1,7 +1,7 @@
 apiVersion: container.gcp.crossplane.io/v1beta2
 kind: Cluster
 metadata:
-  name: cluster2
+  name: cluster5
   namespace: default
 spec:
    forProvider:
@@ -11,13 +11,13 @@ spec:
 apiVersion: container.gcp.crossplane.io/v1beta1
 kind: NodePool
 metadata:
-  name: cluster2
+  name: cluster5
 spec:
   forProvider:
     locations:
     - us-east1-b
     clusterRef:
-      name: cluster2
+      name: cluster5
     initialNodeCount: 1
     config:
       preemptible: true
