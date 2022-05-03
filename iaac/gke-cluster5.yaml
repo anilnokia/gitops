@@ -16,7 +16,6 @@ spec:
   forProvider:
     locations:
     - us-east1-b
-    - us-east1-d
     clusterRef:
       name: cluster5
     initialNodeCount: 1
